@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Products | SoleDimension</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px; 
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .user-btn {
+            background: none;
+            border: none;
+            color: #fff; 
+            font-size: 1.3rem;
+            cursor: pointer;
+            padding: 5px 10px;
+            transition: color 0.3s ease;
+        }
+
+        .user-btn:hover {
+            color: #00ffd1; 
+        }
+
+        .search-filter-container {
+            background-color: #000000;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            color: #ffffff;
+        }
+        
+        .search-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .search-bar input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #333;
+            background-color: #222;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .search-bar input::placeholder {
+            color: #aaa;
+        }
+        
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .filter-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #ddd;
+        }
+        
+        .filter-group select, 
+        .filter-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #333;
+            background-color: #222;
+            color: #fff;
+            border-radius: 4px;
+        }
+        
+        .filter-group select option {
+            background-color: #222;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 30px;
+            font-size: 18px;
+            color: #aaa;
+        }
+        
+        .hero-tagline {
+            font-size: 1.1rem;
+            background-image: linear-gradient(45deg, #00ffd1, #ffaf5a);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                flex-wrap: wrap;
+            }
+            .search-bar {
+                flex-direction: column;
+            }
+            
+            .filters {
+                flex-direction: column;
+            }
+            
+            .hero-tagline {
+                font-size: 1rem;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body class="products-page">
+    <header>
+        <nav>
+            <div class="logo">SoleDimension</div>
+            <button class="menu-toggle">☰</button>
+            <ul class="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./products.html">Products</a></li>
+                <li><a href="./specials.html">Specials</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+
+            <button 
+                class="user-btn" 
+               onclick='window.location.href="login.html";' 
+                aria-label="User Profile"
+                title="User Profile"
+            >
+                <i class="fa-solid fa-user"></i>
+            </button>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+             <h1>Premium Collection</h1>
+             <p class="hero-tagline">Next-level footwear</p>     
+            </div>
+        </section>
+
+        <section class="search-filter-container">
+            <h2 style="margin-top: 0; margin-bottom: 15px;">Find Your Perfect Pair</h2>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search products..." />
+            </div>
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="brand-filter">Brand</label>
+                    <select id="brand-filter">
+                        <option value="">All Brands</option>
+                        <option value="Nike">Nike</option>
+                        <option value="Adidas">Adidas</option>
+                        <option value="Converse">Converse</option>
+                        <option value="Vans">Vans</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="price-min">Price Range</label>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="number" id="price-min" placeholder="Min ₱" min="0" />
+                        <input type="number" id="price-max" placeholder="Max ₱" min="0" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-products">
+            <h2>Explore Our Lineup</h2>
+            <div class="products-grid" id="products-container">
+                <div class="product-card" data-brand="Adidas" data-price="4500">
+                    <img src="assets/images/GRAND COURT 2.0 SHOES.jpg" alt="grand-court" class="product-image" />
+                    <div class="product-info">
+                        <h3>Grand Court 2.0</h3>
+                        <p class="price">₱4,500.00</p>
+                        <button>View Details</button>
+                    </div>
+                </div>
+                <div class="product-card" data-brand="Adidas" data-price="5500">
+                    <img src="assets/images/Campus 00s.jpg" alt="campus-00s" class="product-image" />
+                    <div class="product-info">
+                        <h3>Campus 00s</h3>
+                        <p class="price">₱5,500.00</p>
+                        <button>View Details</button>
+                    </div>
+                </div>
+                <div class="product-card" data-brand="Adidas" data-price="4700">
+                    <img src="assets/images/Break Start Premium Low.jpg" alt="break-start-adidas" class="product-image" />
+                    <div class="product-info">
+                        <h3>Break Start Premium Low</h3>
+                        <p class="price">₱4,700.00</p>
+                        <button>View Details</button>
+                    </div>
+                </div>
+                <div class="product-card" data-brand="Vans" data-price="6600">
+                    <img src="assets/images/OTW Old Skool 36 Foam.png" alt="Old Skool Foam" class="product-image" />
+                    <div class="product-info">
+                        <h3>OTW Old Skool 36 Foam</h3>
+                        <p class="price">₱6,600.00</p>
+                        <button>View Details</button>
+                    </div>
+                </div>
+                <div class="product-card" data-brand="Nike" data-price="6295">
+                    <img src="assets/images/Nike SB Dunk Low Pro.jpg" alt="Nike SB Low" class="product-image" />
+                    <div class="product-info">
+                        <h3>Nike SB Dunk Low Pro</h3>
+                        <p class="price">₱6,295.00</p>
+                        <button>View Details</button>
+                    </div>
+                </div>
+                <div class="product-card" data-brand="Nike" data-price="4095">
+                    <img src="assets/images/Nike SB Malor.jpg" alt="Nike SB" class="product-image" />
+                    <div class="product-info">
+                        <h3>Nike SB Malor</h3>
+                        <p class="price">₱4,095.00</p>
+                        <button>View Details</button>
+                    </div>
+                </div>
+                <div class="product-card" data-brand="Converse" data-price="5600">
+                    <img src="assets/images/Chuck Taylor x NARUTO SHIPPUDEN 'Sasuke Edition'.jpg" alt="" class="product-image" />
+                    <div class="product-info">
+                        <h3>Chuck Taylor x NARUTO SHIPPUDEN 'Sasuke Edition'</h3>
+                        <p class="price">₱5,600.00</p>
+                        <button>View Details</button>
+                    </div>
+                </div>
+                <div class="product-card" data-brand="Converse" data-price="6400">
+                    <img src="assets/images/Chuck Taylor x NARUTO SHIPPUDEN Akatsuki Edition'.jpg" alt="" class="product-image" />
+                    <div class="product-info">
+                        <h3>Chuck Taylor x NARUTO SHIPPUDEN 'Akatsuki Edition'</h3>
+                        <p class="price">₱6,400.00</p>
+                        <button>View Details</button>
+                    </div>
+                </div>
+                <div class="product-card" data-brand="Converse" data-price="5600">
+                    <img src="assets/images/Chuck Taylor x NARUTO SHIPPUDEN Naruto Edition'.jpg" alt="" class="product-image" />
+                    <div class="product-info">
+                        <h3>Chuck Taylor x NARUTO SHIPPUDEN 'Naruto Edition'</h3>
+                        <p class="price">₱5,600.00</p>
+                        <button>View Details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const searchInput = document.getElementById('search-input');
+        const brandFilter = document.getElementById('brand-filter');
+        const priceMinInput = document.getElementById('price-min');
+        const priceMaxInput = document.getElementById('price-max');
+        const productsContainer = document.getElementById('products-container');
+        const productCards = productsContainer.querySelectorAll('.product-card');
+
+        function filterProducts() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const selectedBrand = brandFilter.value;
+            const priceMin = parseFloat(priceMinInput.value) || 0;
+            const priceMax = parseFloat(priceMaxInput.value) || Infinity;
+
+            let visibleCount = 0;
+
+            productCards.forEach(card => {
+                const brand = card.getAttribute('data-brand').toLowerCase();
+                const price = parseFloat(card.getAttribute('data-price'));
+                const title = card.querySelector('h3').textContent.toLowerCase();
+
+                const matchesSearch = title.includes(searchTerm);
+                const matchesBrand = !selectedBrand || brand === selectedBrand.toLowerCase();
+                const matchesPrice = price >= priceMin && price <= priceMax;
+
+                if (matchesSearch && matchesBrand && matchesPrice) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (visibleCount === 0) {
+                productsContainer.innerHTML = '<p class="no-results">No products found.</p>';
+            } else {
+                if (productsContainer.querySelector('.no-results')) {
+                    productsContainer.innerHTML = '';
+                    productCards.forEach(card => productsContainer.appendChild(card));
+                    filterProducts(); 
+                }
+            }
+        }
+
+        searchInput.addEventListener('input', filterProducts);
+        brandFilter.addEventListener('change', filterProducts);
+        priceMinInput.addEventListener('input', filterProducts);
+        priceMaxInput.addEventListener('input', filterProducts);
+
+        filterProducts();
+    </script>
+</body>
+</html>

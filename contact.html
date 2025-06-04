@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | SoleDimension</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .user-button {
+            background: none;
+            border: none;
+            color: inherit;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            margin-left: 20px;
+        }
+        
+        .user-button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: scale(1.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="contact-page">
+    <header>
+        <nav>
+            <div class="logo">SoleDimension</div>
+            <button class="menu-toggle">☰</button>
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./products.html">Products</a></li>
+                    <li><a href="./specials.html">Specials</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                </ul>
+                <button class="user-button" onclick='window.location.href="login.html"'>
+                    <i class="fa-solid fa-user"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-hero">
+            <div class="hero-content">
+                <h1 class="gradient-text">Connect With Us</h1>
+                <p class="subtitle">Step Into the Conversation</p>
+            </div>
+        </section>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="info-card">
+                    <h3>🗨️ Social Links</h3>
+                    <div class="social-links">
+                        <a href="#">Instagram</a>
+                        <a href="#">Twitter</a>
+                        <a href="#">Facebook</a>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h3>📍 Location</h3>
+                    <p>Lapaz<br>Iloilo, FX 2025</p>
+                </div>
+            </div>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Name" class="glow-input">
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email" class="glow-input">
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Message" class="glow-input"></textarea>
+                </div>
+                <button type="submit" class="hologlow-button">Send Message</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 SoleDimension. All rights reserved.</p>
+    </footer>
+</body>
+</html>

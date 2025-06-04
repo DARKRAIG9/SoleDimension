@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | SoleDimension</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .user-button {
+            background: none;
+            border: none;
+            color: inherit;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            margin-left: 20px;
+        }
+        
+        .user-button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: scale(1.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="about-page">
+    <header>
+        <nav>
+            <div class="logo">SoleDimension</div>
+            <button class="menu-toggle">☰</button>
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./products.html">Products</a></li>
+                    <li><a href="./specials.html">Specials</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                </ul>
+                <button class="user-button" onclick='window.location.href="login.html"'>
+                    <i class="fa-solid fa-user"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="about-hero">
+            <div class="hero-content">
+                <h1 class="gradient-text">Walking the Future</h1>
+                <p class="subtitle">Redefining Footwear Since 2025</p>
+            </div>
+        </section>
+
+        <section class="about-content">
+            <div class="story-grid">
+                <div class="story-card">
+                    <div class="decorative-line"></div>
+                    <h2>Our Journey</h2>
+                    <p>At Sole Dimension, we believe that every pair of shoes tells a story—your story. Our journey began with the simple realization that shoes are more than just footwear; they are the foundation of your daily adventures, the silent companions through life's challenges and triumphs. Inspired by worn-out shoes that carried dreams, late nights, and first steps, we set out to create shoes that support and celebrate every dimension of your journey. We understand that shoes are deeply personal, reflecting who you are and where you're headed. That's why we craft each pair with care, comfort, and style, designed to walk with you through every moment—whether chasing dreams, exploring new places, or simply enjoying the everyday. More than a brand, Sole Dimension is a community of dreamers and doers who believe in the power of movement and the stories our soles carry. Together, we're committed to creating shoes that honor your path and the world beneath your feet, inviting you to step into your unique story, one step at a time.</p>
+                </div>
+                
+                <div class="story-card">
+                    <div class="decorative-line"></div>
+                    <h2>The Vision</h2>
+                    <p>At Sole Dimension, we envision a world where every step you take is filled with confidence, comfort, and purpose. We strive to be more than just a shoe brand—we want to be a trusted companion on your journey through life's many dimensions. Our vision is to create shoes that not only fit your feet but also fit your story, empowering you to explore new horizons, embrace challenges, and celebrate the everyday moments that make life meaningful. We believe in walking together toward a future where style meets sustainability, innovation meets heart, and every sole carries the spirit of adventure and authenticity.</p>
+                </div>
+            </div>
+
+            <div class="team-section">
+                <h2>Innovators Behind the Sole</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-image"></div>
+                        <h3>Vin Sandig</h3>
+                        <p>Founder</p>
+                        <p>Lead Designer</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-image"></div>
+                        <h3>Brent DelaCruz</h3>
+                        <p>Co-Designer</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-image"></div>
+                        <h3>James Bornales</h3>
+                        <p>Co-Designer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 SoleDimension. All rights reserved.</p>
+    </footer>
+</body>
+</html>

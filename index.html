@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SoleDimension | Premium Sneakers</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+</head>
+<body class="home-page">
+    <header>
+        <nav style="display: flex; align-items: center; gap: 1.5rem; padding: 0.5rem 1rem;">
+            <div class="logo">SoleDimension</div>
+
+            <ul
+              class="nav-links"
+              style="display: flex; gap: 1.2rem; list-style: none; margin: 0; padding: 0;"
+            >
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="specials.html">Specials</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a
+              href="login.html"
+              title="Profile"
+              style="color: white; font-size: 1.4rem; text-decoration: none; display: flex; align-items: center;"
+            >
+                <i class="fa-solid fa-user"></i>
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Next-Gen Footwear</h1>
+                <p class="hero-tagline">Experience tomorrow's sneakers today</p>
+            </div>
+        </section>
+
+        <section class="featured-products">
+            <h2>Featured Sneakers</h2>
+            <div class="carousel-container">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="product-card" data-product="vans-blue-checkered-leather">
+                        <img src="assets/images/OTW Vans Checkerboard Blue Leather.jpg" alt="vans-checkered-blue" class="product-image" />
+                        <div class="product-info">
+                            <h3>OTW Vans Checkerboard Blue Leather</h3>
+                            <p class="price">₱5,295.00</p>
+                            <button class="view-details-btn" onclick="goToProducts()">View Details</button>
+                        </div>
+                    </div>
+                    <div class="product-card" data-product="nike-travis">
+                        <img src="assets/images/NIke Travis.jpg" alt="Nike Travis" class="product-image" />
+                        <div class="product-info">
+                            <h3>Air Jordan 1 Low x Travis Scott 'Sail and Ridgerock'</h3>
+                            <p class="price">₱8,095.00</p>
+                            <button class="view-details-btn" onclick="goToProducts()">View Details</button>
+                        </div>
+                    </div>
+                    <div class="product-card" data-product="nike-sb">
+                        <img src="assets/images/Nike SB Dunk Low Pro.jpg" alt="Nike SB" class="product-image" />
+                        <div class="product-info">
+                            <h3>Nike SB Dunk Low Pro</h3>
+                            <p class="price">₱6,295.00</p>
+                            <button class="view-details-btn" onclick="goToProducts()">View Details</button>
+                        </div>
+                    </div>
+                    <div class="product-card" data-product="OTW-old-skool">
+                        <img src="assets/images/OTW Old Skool 36 Foam.png" alt="Old Skool" class="product-image" />
+                        <div class="product-info">
+                            <h3>OTW Old Skool 36 Foam</h3>
+                            <p class="price">₱6,600.00</p>
+                            <button class="view-details-btn" onclick="goToProducts()">View Details</button>
+                        </div>
+                    </div>
+                    <div class="product-card" data-product="nike-sb">
+                        <img src="assets/images/Nike SB Malor.jpg" alt="Nike SB" class="product-image" />
+                        <div class="product-info">
+                            <h3>Nike SB Malor</h3>
+                            <p class="price">₱4,095.00</p>
+                            <button class="view-details-btn" onclick="goToProducts()">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-nav">
+                    <button class="nav-btn" onclick="prevSlide()">← Previous</button>
+                    <button class="nav-btn" onclick="nextSlide()">Next →</button>
+                </div>
+
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SoleDimension. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const track = document.getElementById('carouselTrack');
+        const cards = document.querySelectorAll('.product-card');
+        const totalSlides = cards.length;
+        let cardsPerView = window.innerWidth > 768 ? 3 : 1;
+        let maxSlide = Math.max(0, totalSlides - cardsPerView);
+
+        function createDots() {
+            const dotsContainer = document.getElementById('carouselDots');
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i <= maxSlide; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'dot';
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        function updateCarousel() {
+            const cardWidth = cards[0].offsetWidth + 32; 
+            track.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+
+          
+            document.querySelectorAll('.dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = currentSlide >= maxSlide ? 0 : currentSlide + 1;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = currentSlide <= 0 ? maxSlide : currentSlide - 1;
+            updateCarousel();
+        }
+
+        function goToSlide(slide) {
+            currentSlide = slide;
+            updateCarousel();
+        }
+
+        function goToProducts() {
+            window.location.href = 'products.html';
+        }
+
+        let autoSlideInterval = setInterval(nextSlide, 4000);
+
+        track.addEventListener('mouseenter', () => {
+            clearInterval(autoSlideInterval);
+        });
+
+        track.addEventListener('mouseleave', () => {
+            autoSlideInterval = setInterval(nextSlide, 4000);
+        });
+
+        window.addEventListener('resize', () => {
+            const newCardsPerView = window.innerWidth > 768 ? 3 : 1;
+            if (newCardsPerView !== cardsPerView) {
+                cardsPerView = newCardsPerView;
+                maxSlide = Math.max(0, totalSlides - cardsPerView);
+                currentSlide = Math.min(currentSlide, maxSlide);
+                createDots();
+                updateCarousel();
+            }
+        });
+
+        createDots();
+        updateCarousel();
+    </script>
+</body>
+</html>
